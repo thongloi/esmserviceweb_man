@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "284311575362",
+    "project_id": "manserviceweb",
+    "storage_bucket": "manserviceweb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284311575362:android:b2b7911304415da9bb06db",
+        "android_client_info": {
+          "package_name": "com.esmartiso.esmserviceweb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284311575362-63fqgmdr4ecffckqebvficn2hf7m99ff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIIhBzeAEe5GaxCTzycbjrk4MXlIhgU-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284311575362-63fqgmdr4ecffckqebvficn2hf7m99ff.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,8 @@ import 'package:esmserviceweb/utility/my_dialog.dart';
 import 'package:esmserviceweb/widgets/show_image.dart';
 import 'package:esmserviceweb/widgets/show_menu.dart';
 import 'package:esmserviceweb/widgets/show_text.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -34,6 +36,29 @@ class _MyServiceState extends State<MyService> {
   void initState() {
     super.initState();
     findNameLogin();
+    setupMessage();
+  }
+
+  Future<void> setupMessage() async {
+    FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
+    String? token = await firebaseMessaging.getToken();
+    print('## token == > $token');
+
+    //For FrontEnd Service
+    FirebaseMessaging.onMessage.listen((event) {
+      String? title = event.notification!.title;
+      String? body = event.notification!.body;
+      print('## onMessageWork title == > $title body == > $body');
+      MyDialog(context: context).normalDialog(title: title!, subTitle: body!);
+    });
+
+    //For BackEnd Service
+    FirebaseMessaging.onMessageOpenedApp.listen((event) {
+      String? title = event.notification!.title;
+      String? body = event.notification!.body;
+      print('## onOpenApp Work title == > $title body == > $body');
+      MyDialog(context: context).normalDialog(title: title!, subTitle: body!);
+    });
   }
 
   Future<void> findNameLogin() async {
